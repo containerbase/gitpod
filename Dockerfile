@@ -58,16 +58,11 @@ RUN install-tool docker v27.5.1
 # renovate: datasource=github-releases packageName=containerbase/node-prebuild versioning=node
 RUN install-tool node 22.13.1
 
-# enable buildin corepack
-RUN corepack enable
+# renovate: datasource=npm
+RUN install-tool pnpm 10.1.0
 
 # renovate: datasource=github-releases packageName=containerbase/python-prebuild
 RUN install-tool python 3.13.1
 
-# prepare some tools for gitpod
-#RUN prepare-tool python
 
 USER $USER_NAME
-
-# disable anoying download promt
-ENV COREPACK_ENABLE_DOWNLOAD_PROMPT=0
